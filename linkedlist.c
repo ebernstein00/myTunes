@@ -46,3 +46,50 @@ void print_list(struct song_node* front){
   }
   printf("\n");
 }
+
+struct song_node* search(struct song_node* front, char artist[100], char music[100]){
+  struct song_node* searcher = front;
+  while (strcmp(searcher->name, artist) != 0 && strcmp(searcher->song, music) != 0){
+    searcher = searcher->next;
+  }
+  return searcher;
+}
+
+struct song_node* search_artist(struct song_node* front, char artist[100]){
+  struct song_node* searcher = front;
+  while (strcmp(searcher->name, artist) != 0){
+    searcher = searcher->next;
+  }
+  return searcher;
+}
+
+struct song_node* remove_node(struct song_node* front, char artist[100], char music[100]){
+  if (strcmp(artist, front->name) == 0 && strcmp(music, front->song) == 0){
+    struct song_node* ptr = front;
+    front = front->next;
+    free(ptr);
+    return front;
+  }
+  struct song_node* leader = front->next;
+  struct song_node* trailer = front;
+  while (leader->next != NULL){
+    if (strcmp(leader->name, artist) = 0 && strcmp(leader->song, music) = 0){
+      trailer->next = leader->next;
+      free(leader);
+      return front;
+    }
+    trailer = leader;
+    leader = leader->next
+  }
+  return front;
+}
+
+struct song_node* clear_library(struct song_node* front){
+  struct song_node* ptr = front->next;
+  while(ptr != NULL){
+    ptr = front->next;
+    free(front);
+    front = ptr;
+  }
+  return ptr;
+}
