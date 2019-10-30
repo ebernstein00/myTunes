@@ -1,12 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 struct song_node{
   char name[100];
   char song[100];
   struct song_node* next;
 };
+
+srand(time(NULL));
 
 struct song_node* insert_front(struct song_node* node, char artist[100], char music[100]){
   struct song_node* ptr = malloc(sizeof(struct song_node));
@@ -93,3 +96,19 @@ struct song_node* clear_library(struct song_node* front){
   }
   return ptr;
 }
+
+struct song_node* random_song(struct song_node* front){
+  int length = 0;
+  struct song_node* ph = front;
+  while (ph != NULL){
+    ph = ph->next;
+    length++;
+  }
+  int index = rand() % length;
+  int i;
+  for(int i = 0; i < index; i++){
+    front = front->next;
+  }
+  return front;
+}
+  
