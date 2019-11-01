@@ -9,7 +9,6 @@ struct song_node{
   struct song_node* next;
 };
 
-//srand(time(NULL));
 
 struct song_node* insert_front(struct song_node* node, char artist[100], char music[100]){
   struct song_node* ptr = malloc(sizeof(struct song_node));
@@ -20,24 +19,35 @@ struct song_node* insert_front(struct song_node* node, char artist[100], char mu
 }
 
 struct song_node* insert_alphabetical(struct song_node* front, char artist[100], char music[100]){
+
+  if(strcmp(artist, front->name) < 0){
+    struct song_node* ptr = malloc(sizeof(struct song_node));
+    strcpy(ptr->name,artist);
+    strcpy(ptr->song,music);
+    ptr->next=front;
+    return ptr;
+  }
   struct song_node* searcher = front;
-  while(strcmp(artist, searcher->name) > 0){
+  //printf("We want this artist %s with this music %s",artist,music);
+  while(strcmp(artist, searcher->next->name) > 0){
     searcher = searcher->next;
   }
   if (strcmp(artist, searcher->name) == 0){
-    while(strcmp(music, searcher->song) > 0){
+    while(strcmp(music, searcher->next->song) > 0){
       searcher = searcher->next;
     }
     struct song_node* ptr = malloc(sizeof(struct song_node));
     strcpy(ptr->name,artist);
     strcpy(ptr->song,music);
-    ptr->next=front;
+    ptr->next=searcher->next;
+    searcher->next=ptr;
     return front;
   }
   struct song_node* ptr = malloc(sizeof(struct song_node));
   strcpy(ptr->name,artist);
   strcpy(ptr->song,music);
-  ptr->next=front;
+  ptr->next=searcher->next;
+  searcher->next=ptr;
   return front;
 }
 

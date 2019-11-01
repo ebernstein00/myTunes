@@ -10,7 +10,7 @@ struct song_node{
 };
 
 int main(){
-
+  srand(time(NULL));
   //struct song_node *tail;
   //struct song_node *head=tail;
   struct song_node* front=NULL;
@@ -19,6 +19,18 @@ int main(){
   front = insert_front(front, "pink floyd","time");
   front = insert_front(front, "jimi hendricks","purple haze");
   front = insert_alphabetical(front, "katy perry","whatever");
+  front = insert_alphabetical(front, "adele","hello");
+  print_list(front);
+  struct song_node* myRandSong = random_song(front);
+  printf("Your random song is %s by %s \n",myRandSong->song,myRandSong->name);
+
+
+  print_list(search_artist(front,"pink floyd"));
+  front = remove_node(front,"adele","hello");
+  print_list(front);
+  front = remove_node(front,"pink floyd","time");
+  print_list(front);
+  front = clear_library(front);
   print_list(front);
   return 0;
 }
