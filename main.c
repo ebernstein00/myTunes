@@ -1,4 +1,5 @@
 #include "listfunctions.h"
+#include "tunes.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -32,5 +33,10 @@ int main(){
   print_list(front);
   front = clear_library(front);
   print_list(front);
+  printf("\n\nFinished Linked List Testing, proceeding to test tunes.c \n\n");
+  struct song_node* library[27];
+  struct song_node** libptr = &library;
+  libptr=add_song(libptr,"pink floyd","the wall");
+  printLibrary(libptr);
   return 0;
 }
