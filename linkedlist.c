@@ -9,13 +9,13 @@ struct song_node{
   struct song_node* next;
 };
 
-srand(time(NULL));
+//srand(time(NULL));
 
 struct song_node* insert_front(struct song_node* node, char artist[100], char music[100]){
   struct song_node* ptr = malloc(sizeof(struct song_node));
-  ptr->name = artist;
-  ptr->song = music;
-  ptr->next = node;
+  strcpy(ptr->name,artist);
+  strcpy(ptr->song,music);
+  ptr->next=node;
   return ptr;
 }
 
@@ -24,30 +24,36 @@ struct song_node* insert_alphabetical(struct song_node* front, char artist[100],
   while(strcmp(artist, searcher->name) > 0){
     searcher = searcher->next;
   }
-  if (strcmp(artist, searcher->name) = 0){
+  if (strcmp(artist, searcher->name) == 0){
     while(strcmp(music, searcher->song) > 0){
       searcher = searcher->next;
     }
     struct song_node* ptr = malloc(sizeof(struct song_node));
-    ptr->name = artist;
-    ptr->song = music;
-    ptr->next = searcher;
+    strcpy(ptr->name,artist);
+    strcpy(ptr->song,music);
+    ptr->next=front;
     return front;
   }
   struct song_node* ptr = malloc(sizeof(struct song_node));
-  ptr->name = artist;
-  ptr->song = music;
-  ptr->next = searcher;
+  strcpy(ptr->name,artist);
+  strcpy(ptr->song,music);
+  ptr->next=front;
   return front;
 }
 
 void print_list(struct song_node* front){
-  printf("|");
-  if (front == NULL) printf("  |");
-  while(front->next != NULL){
-    printf("%s: %s|", front->name, front->song);
+  if(front){
+    printf("%s: %s |",(*front).name,(*front).song);
+    if((*front).next){
+      print_list((*front).next);
+    }
+    else{
+      printf("\n");
+    }
   }
-  printf("\n");
+  else{
+    printf("No songs yet\n");
+  }
 }
 
 struct song_node* search(struct song_node* front, char artist[100], char music[100]){
@@ -76,13 +82,13 @@ struct song_node* remove_node(struct song_node* front, char artist[100], char mu
   struct song_node* leader = front->next;
   struct song_node* trailer = front;
   while (leader->next != NULL){
-    if (strcmp(leader->name, artist) = 0 && strcmp(leader->song, music) = 0){
+    if (strcmp(leader->name, artist) == 0 && strcmp(leader->song, music) == 0){
       trailer->next = leader->next;
       free(leader);
       return front;
     }
     trailer = leader;
-    leader = leader->next
+    leader = leader->next;
   }
   return front;
 }
@@ -111,4 +117,3 @@ struct song_node* random_song(struct song_node* front){
   }
   return front;
 }
-  
