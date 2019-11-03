@@ -80,7 +80,7 @@ void shuffle(struct song_node* library[27], int numSongs){
 void delete_library(struct song_node* library[27]){
   int i;
   for (i = 0; i < 27; i++){
-    clear_library(library[i]);
+    library[i] = clear_library(library[i]);
   }
   printf("Music library cleared!");
 }
