@@ -110,6 +110,7 @@ struct song_node* clear_library(struct song_node* front){
     free(front);
     front = ptr;
   }
+  free(front);
   return ptr;
 }
 
