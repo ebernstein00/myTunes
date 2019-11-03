@@ -1,4 +1,4 @@
-ifeq($(DEBUG), true)
+ifeq ($(DEBUG), true)
 	CC = gcc -g
 else
 	CC = gcc
