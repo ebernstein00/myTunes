@@ -88,5 +88,5 @@ void delete_library(struct song_node* library[27]){
 void delete_song(struct song_node* library[27], char artist[100], char music[100]){
   char firstChar = artist[0];
   int index = getIndex(firstChar);
-  remove_node(library[index], artist, music);
+  library[index] = remove_node(library[index], artist, music);
 }
