@@ -31,7 +31,7 @@ struct song_node** add_song(struct song_node* library[27],char artist[100], char
   return library;
 }
 
-void printLibrary(struct song_node* library[27]){
+void printLibrary(struct song_node **library){
   int i;
   for(i=0;i<27;i++){
     print_list(library[i]);
@@ -50,7 +50,7 @@ struct song_node* search_for_artist(struct song_node* library[27], char artist[1
   return search_artist(library[index],artist);
 }
 
-void print_letter(struct song_node* library[27], char letter){
+void print_letter(struct song_node** library, char letter){
   int index = getIndex(letter);
   print_list(library[index]);
 }

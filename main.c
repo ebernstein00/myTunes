@@ -37,6 +37,9 @@ int main(){
 
   struct song_node *library[27];
   add_song(library,"pink floyd","the wall");
+  //char p = 'p';
+  //printf("made it here \n");
+  //print_letter(library,p);
   printLibrary(library);
   return 0;
 }
