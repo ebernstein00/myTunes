@@ -49,6 +49,7 @@ struct song_node* search_for_artist(struct song_node* library[27], char artist[1
 
 void print_letter(struct song_node** library, char letter){
   int index = getIndex(letter);
+  printf("%c: ", letter);
   print_list(library[index]);
 }
 

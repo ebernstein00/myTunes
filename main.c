@@ -41,12 +41,25 @@ int main(){
     library[i]=NULL;
   }
   add_song(library,"pink floyd","the wall");
-  print_list(library[9]);
-  print_list(library[16]);
-  char p = 'p';
-  printf("made it here \n");
-  print_letter(library,p);
-  printf("made it here as well\n");
+  //printf("made it \n");
+  add_song(library,"pink floyd","time");
+  //printf("made it \n");
+  add_song(library,"pink floyd","money");
+  //printf("made it \n");
+  add_song(library,"paul mcartney","too many people");
+  add_song(library,"paul simon","american tune");
+  add_song(library,"adele","hello");
+  add_song(library,"katy perry","whatever");
+  add_song(library,"jimi hendricks","purple haze");
+  add_song(library,"beyonce","crazy in love");
   printLibrary(library);
+  print_letter(library,'p');
+  print_letter(library,'a');
+  print_letter(library,'b');
+  print_letter(library,'c');
+  printf("adding cher into the mix...\n");
+  add_song(library,"cher","believe");
+  print_letter(library,'c');
+  
   return 0;
 }

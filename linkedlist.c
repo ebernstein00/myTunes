@@ -31,7 +31,7 @@ struct song_node* insert_alphabetical(struct song_node* front, char artist[100],
     searcher = searcher->next;
   }
   if (strcmp(artist, searcher->name) == 0){
-    while(strcmp(music, searcher->next->song) > 0){
+    while(searcher->next && strcmp(music, searcher->next->song) > 0){
       if (searcher->next == NULL) break;
       searcher = searcher->next;
     }
