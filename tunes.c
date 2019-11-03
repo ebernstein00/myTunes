@@ -20,7 +20,7 @@ struct song_node** add_song(struct song_node* library[27],char artist[100], char
   return library;
 }
 
-void printLibrary(struct song_node** library){
+void printLibrary(struct song_node* library[27]){
   int i;
   for(i=0;i<27;i++){
     print_list(library[i]);
