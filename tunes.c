@@ -55,10 +55,26 @@ void print_letter(struct song_node** library, char letter){
 
 void shuffle(struct song_node* library[27], int numSongs){
   int i;
-  for(i=0;i<numSongs;i++){
-    struct song_node* newSong = random_song(library[rand()%27]);
-    printf("%s by %s", newSong->song, newSong->name);
+  struct song_node *songs=NULL;
+  for(i=0;i<27;i++){
+    struct song_node* newSong = library[i];
+    while(newSong){
+      songs=insert_front(songs,newSong->name,newSong->song);
+      newSong=newSong->next;
+    }
   }
+  i=0;
+  for(i=0;i<numSongs;i++){
+    struct song_node *myRandSong=random_song(songs);
+    printf("%s by %s, ", myRandSong->song,myRandSong->name);
+    songs = remove_node(songs,myRandSong->name,myRandSong->song);
+    if(!songs && i<numSongs-1){
+      printf("\n Sorry, those are all your songs, you didn't have enough to make a playlist that big\n");
+      break;
+    }
+  }
+  printf("\n");
+
 }
 
 void delete_library(struct song_node* library[27]){
