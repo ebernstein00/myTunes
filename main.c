@@ -37,6 +37,6 @@ int main(){
   struct song_node* library[27];
   struct song_node** libptr = &library;
   libptr=add_song(libptr,"pink floyd","the wall");
-  printLibrary(libptr);
+  printLibrary(library);
   return 0;
 }
