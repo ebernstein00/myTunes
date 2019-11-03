@@ -68,7 +68,7 @@ void print_list(struct song_node* front){
 
 struct song_node* search(struct song_node* front, char artist[100], char music[100]){
   struct song_node* searcher = front;
-  while (strncmp(searcher->name, artist) != 0 && strncmp(searcher->song, music) != 0){
+  while (strcmp(searcher->name, artist) != 0 && strcmp(searcher->song, music) != 0){
     searcher = searcher->next;
   }
   return searcher;
@@ -76,14 +76,14 @@ struct song_node* search(struct song_node* front, char artist[100], char music[1
 
 struct song_node* search_artist(struct song_node* front, char artist[100]){
   struct song_node* searcher = front;
-  while (strncmp(searcher->name, artist) != 0){
+  while (strcmp(searcher->name, artist) != 0){
     searcher = searcher->next;
   }
   return searcher;
 }
 
 struct song_node* remove_node(struct song_node* front, char artist[100], char music[100]){
-  if (strncmp(artist, front->name) == 0 && strncmp(music, front->song) == 0){
+  if (strcmp(artist, front->name) == 0 && strcmp(music, front->song) == 0){
     struct song_node* ptr = front;
     front = front->next;
     free(ptr);
@@ -92,7 +92,7 @@ struct song_node* remove_node(struct song_node* front, char artist[100], char mu
   struct song_node* leader = front->next;
   struct song_node* trailer = front;
   while (leader->next != NULL){
-    if (strncmp(leader->name, artist) == 0 && strncmp(leader->song, music) == 0){
+    if (strcmp(leader->name, artist) == 0 && strcmp(leader->song, music) == 0){
       trailer->next = leader->next;
       free(leader);
       return front;
