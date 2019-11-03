@@ -103,6 +103,7 @@ struct song_node* remove_node(struct song_node* front, char artist[100], char mu
 }
 
 struct song_node* clear_library(struct song_node* front){
+  if (front == NULL) return front;
   struct song_node* ptr = front->next;
   while(ptr != NULL){
     ptr = front->next;
