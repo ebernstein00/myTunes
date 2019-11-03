@@ -11,3 +11,7 @@ struct song_node* search_for_artist(struct song_node* library[27], char artist[1
 void print_letter(struct song_node** library, char letter);
 
 void shuffle(struct song_node** library, int numSongs);
+
+void delete_library(struct song_node* library[27]);
+
+void delete_song(struct song_node* library[27], char artist[100], char music[100]);

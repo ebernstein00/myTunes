@@ -60,3 +60,17 @@ void shuffle(struct song_node* library[27], int numSongs){
     printf("%s by %s", newSong->song, newSong->name);
   }
 }
+
+void delete_library(struct song_node* library[27]){
+  int i;
+  for (i = 0; i < 27; i++){
+    clear_library(library[i]);
+  }
+  printf("Music library cleared!");
+}
+
+void delete_song(struct song_node* library[27], char artist[100], char music[100]){
+  char firstChar = artist[0];
+  int index = getIndex(firstChar);
+  remove_node(library[index], artist, music);
+}
