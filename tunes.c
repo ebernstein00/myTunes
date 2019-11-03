@@ -13,10 +13,12 @@ struct song_node{
 struct song_node** add_song(struct song_node* library[27],char artist[100], char music[100]){
   char firstChar = artist[0];
   if(firstChar<97 && firstChar>122){
-    library[0]=insert_alphabetical(library[0],artist,music);
+    //library[0]=insert_alphabetical(library[0],artist,music);
+    insert_alphabetical(library[0],artist,music);
     return library;
   }
-  library[firstChar-96]=insert_alphabetical(library[firstChar-96],artist,music);
+  //library[firstChar-96]=insert_alphabetical(library[firstChar-96],artist,music);
+  insert_alphabetical(library[firstChar-96],artist,music);
   return library;
 }
 
