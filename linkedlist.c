@@ -29,11 +29,12 @@ struct song_node* insert_alphabetical(struct song_node* front, char artist[100],
   }
   struct song_node* searcher = front;
   //printf("We want this artist %s with this music %s",artist,music);
-  while(strncmp(artist, searcher->next->name) > 0){
+  while(strcmp(artist, searcher->next->name) > 0){
     searcher = searcher->next;
   }
   if (strcmp(artist, searcher->name) == 0){
-    while(strncmp(music, searcher->next->song) > 0){
+    while(strcmp(music, searcher->next->song) > 0){
+      if (searcher->next == NULL) break;
       searcher = searcher->next;
     }
     struct song_node* ptr = malloc(sizeof(struct song_node));
