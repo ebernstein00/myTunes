@@ -36,10 +36,17 @@ int main(){
   printf("\n\nFinished Linked List Testing, proceeding to test tunes.c \n\n");
 
   struct song_node *library[27];
+  int i;
+  for(i=0;i<27;i++){
+    library[i]=NULL;
+  }
   add_song(library,"pink floyd","the wall");
-  //char p = 'p';
-  //printf("made it here \n");
-  //print_letter(library,p);
+  print_list(library[9]);
+  print_list(library[16]);
+  char p = 'p';
+  printf("made it here \n");
+  print_letter(library,p);
+  printf("made it here as well\n");
   printLibrary(library);
   return 0;
 }

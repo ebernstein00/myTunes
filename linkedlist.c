@@ -20,14 +20,10 @@ struct song_node* insert_front(struct song_node* node, char artist[100], char mu
 
 struct song_node* insert_alphabetical(struct song_node* front, char artist[100], char music[100]){
   if (!front){
-    return insert_front(malloc(sizeof(struct song_node)), artist, music);
+    return insert_front(front, artist, music);
   }
   if(strcmp(artist, front->name) < 0){
-    struct song_node* ptr = malloc(sizeof(struct song_node));
-    strcpy(ptr->name,artist);
-    strcpy(ptr->song,music);
-    ptr->next=front;
-    return ptr;
+    return insert_front(front, artist, music);
   }
   struct song_node* searcher = front;
   //printf("We want this artist %s with this music %s",artist,music);
