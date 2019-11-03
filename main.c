@@ -60,6 +60,18 @@ int main(){
   printf("adding cher into the mix...\n");
   add_song(library,"cher","believe");
   print_letter(library,'c');
-  
+  printf("life was better w/o cher...\n");
+  delete_song(library,"cher","believe");
+  print_letter(library,'c');
+  printf("Random playlist???\nFirst, just 2 songs\n");
+  shuffle(library,2);
+  printf("Second, a (hopefully) different 2 songs\n");
+  shuffle(library,2);
+  printf("Random playlist???. Third, 5 songs\n");
+  shuffle(library,5);
+  printLibrary(library);
+  printf("I'm tired of this library, let's kill it\n");
+  delete_library(library);
+  printLibrary(library);
   return 0;
 }
