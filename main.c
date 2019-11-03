@@ -34,9 +34,9 @@ int main(){
   front = clear_library(front);
   print_list(front);
   printf("\n\nFinished Linked List Testing, proceeding to test tunes.c \n\n");
-  struct song_node* library[27];
-  struct song_node** libptr = &library;
-  libptr=add_song(libptr,"pink floyd","the wall");
+
+  struct song_node *library[27];
+  add_song(library,"pink floyd","the wall");
   printLibrary(library);
   return 0;
 }
