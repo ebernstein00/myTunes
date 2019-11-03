@@ -11,7 +11,7 @@ struct song_node{
 };
 
 int getIndex(char firstChar){
-  if(firstChar<97 && firstChar>122){
+  if(firstChar<97 || firstChar>122){
     return 0;
   }
   else{
@@ -82,7 +82,7 @@ void delete_library(struct song_node* library[27]){
   for (i = 0; i < 27; i++){
     library[i] = clear_library(library[i]);
   }
-  printf("Music library cleared!");
+  printf("Music library cleared!\n");
 }
 
 void delete_song(struct song_node* library[27], char artist[100], char music[100]){

@@ -49,9 +49,12 @@ int main(){
   add_song(library,"paul mcartney","too many people");
   add_song(library,"paul simon","american tune");
   add_song(library,"adele","hello");
+  add_song(library,"a$ap rocky","l$d");
   add_song(library,"katy perry","whatever");
   add_song(library,"jimi hendricks","purple haze");
   add_song(library,"beyonce","crazy in love");
+  add_song(library,"1 direction","story of my life");
+  add_song(library,"^ exponents","2^32");
   printLibrary(library);
   print_letter(library,'p');
   print_letter(library,'a');
