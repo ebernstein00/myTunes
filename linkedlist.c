@@ -19,7 +19,9 @@ struct song_node* insert_front(struct song_node* node, char artist[100], char mu
 }
 
 struct song_node* insert_alphabetical(struct song_node* front, char artist[100], char music[100]){
-
+  if (front == NULL){
+    insert_front(malloc(sizeof(struct song_node)), artist, music);
+  }
   if(strcmp(artist, front->name) < 0){
     struct song_node* ptr = malloc(sizeof(struct song_node));
     strcpy(ptr->name,artist);
